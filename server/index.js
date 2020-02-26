@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 
 import api from './routes/api';
-import preact from './controllers/preact';
+import react from './controllers/react';
 import { proxyRequest } from './controllers/proxy';
 import { healthCheck } from './controllers/health';
 import { httpsRedirect } from './middleware/https';
@@ -55,7 +55,7 @@ server.use('/api', api);
 server.use('/apis', proxyRequest);
 
 // Fallback resource.
-server.get('*', preact);
+server.get('*', react);
 
 /*************************************************
  * SERVER START

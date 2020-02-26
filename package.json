@@ -1,13 +1,15 @@
 {
   "name": "p",
   "version": "1.0.0",
+  "proxy": "http://localhost:9090",
   "scripts": {
     "production": "yarn build && yarn server",
     "start": "concurrently 'react-scripts start' 'yarn server:dev'",
-    "build": "NODE_PATH=src react-scripts build --src src/app",
+    "start:react": "NODE_PATH=src react-scripts start",
+    "build": "NODE_PATH=src react-scripts build",
     "test": "NODE_PATH=src react-scripts test",
-    "server": "babel ./src/server -d ./src/server-babel && node ./src/server-babel/index.js",
-    "server:dev": "babel-watch ./src/server/index.js",
+    "server": "babel ./server -d ./server-babel && node ./server-babel/index.js",
+    "server:dev": "babel-watch ./server/index.js",
     "test:ci": "jest",
     "lint": "eslint src",
     "prettier": "prettier --write '**/*.js'",
@@ -87,5 +89,17 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

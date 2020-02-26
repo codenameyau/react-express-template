@@ -1,6 +1,6 @@
 import path from 'path';
 
-const preactApp = (req, res, next) => {
+const reactApp = (req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
     res.redirect(`${req.path}`);
   }
@@ -9,4 +9,4 @@ const preactApp = (req, res, next) => {
   res.sendFile(html);
 };
 
-export default preactApp;
+export default reactApp;

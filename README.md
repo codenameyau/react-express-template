@@ -1,14 +1,12 @@
-# p
+# react-express-template
 
 ### Features
-- Watch mode and hot module reloading for Preact application.
+- Watch mode and hot module reloading for React application.
 - Watch mode for our node Express server.
-- Preact application comes with styled-components and storybook.
+- React application comes with styled-components and storybook.
 - Express server comes with proxy, middleware, logging.
 - Workflow: Prettier, eslint, imagemin is run on every commit.
 - Isomorphic absolute ES6 import statements on both client app and server.
-- Jest has been setup with enzyme and enzyme-adapter-preact-pure.
-- Project is setup for heroku deployment.
 
 ## CLI Commands
 
