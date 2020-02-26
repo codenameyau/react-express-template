@@ -1,7 +1,9 @@
 {
   "extends": [
     "eslint:recommended",
-    "eslint-config-synacor"
+    "react-app",
+		"plugin:react/recommended",
+		"plugin:jsx-a11y/recommended"
   ],
   "env": {
     "browser": true,
@@ -24,6 +26,7 @@
     "no-console": "off",
     "no-unused-vars": "warn",
     "curly": "warn",
+    "eqeqeq": ["warn", "smart"],
     "brace-style": "off",
     "arrow-body-style": "off",
     "new-cap": "off",

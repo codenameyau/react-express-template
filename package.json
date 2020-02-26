@@ -1,14 +1,13 @@
 {
-  "name": "preact-express-template",
+  "name": "p",
   "version": "1.0.0",
   "scripts": {
     "production": "yarn build && yarn server",
-    "start": "concurrently 'yarn build:dev' 'yarn server:dev'",
+    "start": "concurrently 'react-scripts start' 'yarn server:dev'",
+    "build": "NODE_PATH=src react-scripts build --src src/app",
+    "test": "NODE_PATH=src react-scripts test",
     "server": "babel ./src/server -d ./src/server-babel && node ./src/server-babel/index.js",
     "server:dev": "babel-watch ./src/server/index.js",
-    "build": "preact build --src src/app",
-    "build:dev": "preact watch --src src/app --config preact.config.js --port 9091",
-    "test": "jest --watch",
     "test:ci": "jest",
     "lint": "eslint src",
     "prettier": "prettier --write '**/*.js'",
@@ -31,9 +30,9 @@
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.0",
     "morgan": "^1.9.1",
-    "preact": "^10.0.1",
-    "preact-render-to-string": "^5.1.0",
-    "preact-router": "^3.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
@@ -47,14 +46,15 @@
     "@storybook/addon-storysource": "^5.3.13",
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/addons": "^5.3.13",
-    "@storybook/preact": "^5.3.13",
+    "@storybook/react": "^5.3.13",
     "babel-loader": "^8.0.6",
     "babel-watch": "^7.0.0",
     "concurrently": "^5.1.0",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-preact-pure": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-config-synacor": "^3.0.5",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
     "husky": ">=4",
     "identity-obj-proxy": "^3.0.0",
     "imagemin": "^7.0.1",
@@ -62,11 +62,8 @@
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.0.0",
     "jest": "^24.9.0",
-    "jest-preset-preact": "^1.0.0",
     "lint-staged": "^10.0.7",
     "per-env": "^1.0.2",
-    "preact-cli": "^3.0.0-rc.6",
-    "preact-render-spy": "^1.2.1",
     "prettier": "^1.19.1",
     "source-map-explorer": "^2.2.2"
   },
@@ -82,7 +79,6 @@
     ]
   },
   "jest": {
-    "preset": "jest-preset-preact",
     "setupFiles": [
       "./src/setupTests.js"
     ]
