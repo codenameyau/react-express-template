@@ -5,7 +5,7 @@ const reactApp = (req, res, next) => {
     res.redirect(`${req.path}`);
   }
 
-  const html = path.resolve('build/index.html');
+  const html = path.resolve('public/index.html');
   res.sendFile(html);
 };
 

@@ -34,3 +34,6 @@ yarn analyze
 # Build and run production app.
 yarn production
 ```
+
+## Resources
+- Create react app config: https://create-react-app.dev/docs/advanced-configuration
