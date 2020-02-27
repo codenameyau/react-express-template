@@ -3,11 +3,11 @@
 ### Features
 - CRA watch mode and hot module reloading for React application.
 - Watch mode for our node Express server.
-- React application comes with styled-components.
+- Styled components (zero css files).
 - Storybook component development.
 - Express server comes with proxy, middleware, logging.
-- Workflow: Prettier, eslint, imagemin is run on every commit.
-- Isomorphic absolute ES6 import statements on both client app and server.
+- Git Workflow: Prettier, eslint, imagemin is run on every commit.
+- Isomorphic ES6 import statements on both client app and server.
 
 ## CLI Commands
 
