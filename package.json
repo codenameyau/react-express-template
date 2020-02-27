@@ -1,10 +1,10 @@
 {
-  "name": "p",
+  "name": "react-express-template",
   "version": "1.0.0",
-  "proxy": "http://localhost:9090",
+  "proxy": "http://localhost:9008",
   "scripts": {
     "production": "yarn build && yarn server",
-    "start": "concurrently 'react-scripts start' 'yarn server:dev'",
+    "start": "concurrently 'yarn server:dev' 'yarn start:react'",
     "start:react": "NODE_PATH=src react-scripts start",
     "build": "NODE_PATH=src react-scripts build",
     "test": "NODE_PATH=src react-scripts test",
@@ -16,11 +16,6 @@
     "analyze": "source-map-explorer ./build/*.{js,map}",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-  },
-  "application": {
-    "server": {
-      "port": 9090
-    }
   },
   "eslintIgnore": [
     "build/*"

@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import request from 'app/utils/request';
 
 function App() {
-  return (
+  const [ready, setReady] = useState(false);
+  const [apiData, setApiData] = useState(null);
+
+  useEffect(() => {
+    if (!ready) {
+      request('/api').then(res => {
+        setApiData(res);
+        setReady(true);
+      });
+    }
+  }, [ready]);
+
+  return ready ? (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>{apiData && JSON.stringify(apiData, null, 2)}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -20,7 +31,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  ) : null;
 }
 
 export default App;

@@ -61,7 +61,7 @@ server.get('*', react);
  * SERVER START
  *************************************************/
 
-const PORT = process.env.PORT || 9090;
+const PORT = process.env.PORT || 9008;
 
 server.listen(PORT, error => {
   if (error) {

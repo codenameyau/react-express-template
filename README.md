@@ -1,9 +1,9 @@
 # react-express-template
 
 ### Features
-- Watch mode and hot module reloading for React application.
+- CRA watch mode and hot module reloading for React application.
 - Watch mode for our node Express server.
-- React application comes with styled-components and storybook.
+- React application comes with styled-components.
 - Express server comes with proxy, middleware, logging.
 - Workflow: Prettier, eslint, imagemin is run on every commit.
 - Isomorphic absolute ES6 import statements on both client app and server.
