@@ -1,7 +1,7 @@
 export const request = (
   url,
   options = {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

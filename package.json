@@ -5,9 +5,9 @@
   "scripts": {
     "production": "yarn build && yarn server",
     "start": "concurrently 'yarn server:dev' 'yarn start:react'",
-    "start:react": "NODE_PATH=src react-scripts start",
-    "build": "NODE_PATH=src react-scripts build",
-    "test": "NODE_PATH=src react-scripts test",
+    "start:react": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "server": "babel ./server -d ./server-babel && node ./server-babel/index.js",
     "server:dev": "babel-watch ./server/index.js",
     "test:ci": "jest",
