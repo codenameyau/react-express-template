@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import compression from 'compression';
 
 import api from './routes/api';
 import react from './controllers/react';
@@ -18,6 +19,7 @@ import { httpsRedirect } from './middleware/https';
 const server = express();
 
 dotenv.config();
+server.use(compression());
 server.use(cookieParser());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
