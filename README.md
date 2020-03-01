@@ -40,7 +40,9 @@ yarn production
 ```
 
 ## Resources
-- Create react app config: https://create-react-app.dev/docs/advanced-configuration
+
+### Configuring Create React App
+https://create-react-app.dev/docs/advanced-configuration
 
 ### Analyzing node modules size
 Having too many node modules can increase the disk space requirement and memory
@@ -51,7 +53,7 @@ size of individual dependencies in your node modules.
 du -h -d1 node_modules/ | sort -hr | less
 ```
 
-### Recommended Storybook addons
+### Storybook addons
 By default this template does not come with storybook addons although I highly
 recommend using them for development. You can find a full list of add-ons here:
 https://github.com/storybookjs/storybook/tree/master/addons
