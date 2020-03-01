@@ -1,10 +1,7 @@
+// Visit here for a list of storybook addons.
+// https://github.com/storybookjs/storybook/tree/master/addons
+
 module.exports = {
   stories: ['./Welcome.stories.js', '../src/app/**/*.stories.js'],
-  addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-a11y',
-    '@storybook/addon-viewport',
-    '@storybook/addon-storysource',
-  ],
+  addons: [],
 };
