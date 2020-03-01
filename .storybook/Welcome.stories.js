@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { linkTo } from '@storybook/addon-links';
+
+const Container = styled.div`
+  padding: 0 1em;
+`;
 
 const Welcome = () => (
-  <div>
+  <Container>
     <h1>Welcome to storybook</h1>
     <p>This is a UI component dev environment for your app.</p>
     <p>
@@ -28,7 +31,7 @@ const Welcome = () => (
       </a>{' '}
       section in our documentation.
     </p>
-  </div>
+  </Container>
 );
 
 export default {
