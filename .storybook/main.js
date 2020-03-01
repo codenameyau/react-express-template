@@ -2,6 +2,6 @@
 // https://github.com/storybookjs/storybook/tree/master/addons
 
 module.exports = {
-  stories: ['./Welcome.stories.js', '../src/app/**/*.stories.js'],
+  stories: ['./Welcome.stories.js', '../src/**/*.stories.js'],
   addons: [],
 };
