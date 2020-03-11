@@ -5,7 +5,7 @@ import { useFetch } from 'app/hooks';
 import { AppMain, CodeBlock } from 'app/styles/SharedStyles.js';
 
 export const Rockets = props => {
-  const [ready, data] = useFetch({ path: '/api' });
+  const [ready, data] = useFetch({ path: '/spacex/launches/latest' });
 
   return (
     <AppMain>

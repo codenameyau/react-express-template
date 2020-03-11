@@ -8,7 +8,7 @@ import compression from 'compression';
 
 import api from './routes/api';
 import react from './controllers/react';
-import { proxyRequest } from './controllers/proxy';
+import { proxySpaceXRequest } from './controllers/proxy';
 import { healthCheck } from './controllers/health';
 import { httpsRedirect } from './middleware/https';
 
@@ -16,24 +16,24 @@ import { httpsRedirect } from './middleware/https';
  * SERVER CONFIG
  *************************************************/
 
-const server = express();
+const app = express();
 
 dotenv.config();
-server.use(compression());
-server.use(cookieParser());
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Force https with redirect.
 if (process.env.NODE_ENV === 'production') {
-  server.use(httpsRedirect);
+  app.use(httpsRedirect);
 }
 
 // Enable morgan request logging.
 if (process.env.NODE_ENV === 'development') {
-  server.use(morgan('dev'));
+  app.use(morgan('dev'));
 } else {
-  server.use(
+  app.use(
     morgan('combined', {
       skip: (req, res) => {
         return res.statusCode < 400; // don't log successful requests
@@ -47,28 +47,48 @@ if (process.env.NODE_ENV === 'development') {
  *************************************************/
 
 // Serve static files in production 'build/'.
-server.use(express.static(path.resolve('build')));
+app.use(express.static(path.resolve('build')));
 
 // Health check endpoint.
-server.get('/health', healthCheck);
+app.get('/health', healthCheck);
 
-// Internal API and services proxy server.
-server.use('/api', api);
-server.use('/apis', proxyRequest);
+// Internal API and services proxy app.
+app.use('/spacex', proxySpaceXRequest);
+app.use('/api', api);
 
 // Fallback resource.
-server.get('*', react);
+app.get('*', react);
 
 /*************************************************
  * SERVER START
  *************************************************/
 
-const PORT = process.env.EXPRESS_PORT || 9008;
+// Heroku server
+if (process.env.NODE_ENV === 'production') {
+  const server = app.listen(process.env.PORT, error => {
+    if (error) {
+      return console.error(error);
+    }
 
-server.listen(PORT, error => {
-  if (error) {
-    return console.log(error);
-  }
+    console.log(
+      `🚀 Express prod server started at https://${process.env.HOST}:${
+        server.address().port
+      }`
+    );
+  });
+}
 
-  console.log(`🚀 Express server started at http://localhost:${PORT}`);
-});
+// Local server
+else {
+  const server = app.listen(process.env.EXPRESS_PORT, error => {
+    if (error) {
+      return console.error(error);
+    }
+
+    console.log(
+      `🚀 Express dev server started at http://${process.env.HOST}:${
+        server.address().port
+      }`
+    );
+  });
+}
