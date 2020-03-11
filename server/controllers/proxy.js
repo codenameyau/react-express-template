@@ -2,7 +2,7 @@
 // https://github.com/villadora/express-http-proxy
 import proxy from 'express-http-proxy';
 
-const API_PATH = '';
+const API_PATH = 'https://api.spacexdata.com/v3/launches/latest';
 
 export const proxyRequest = proxy(API_PATH, {
   https: true,

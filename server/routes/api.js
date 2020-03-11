@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.json({
     status: 200,
-    message: 'Hello world from API',
+    message: 'Hello from Express API',
   });
 });
 
