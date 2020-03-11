@@ -1,15 +1,17 @@
 import React from 'react';
-import ReactLogo from 'app/assets/logo.svg';
+import { Link } from 'react-router-dom';
 import { AppMain } from 'app/styles/SharedStyles.js';
 
 export const NotFound = props => {
   return (
     <AppMain>
-      <img src={ReactLogo} className="App-logo" alt="logo" />
+      <Link className="App-link" to="/">
+        Return home{' '}
+        <span role="img" aria-label="home">
+          🏡
+        </span>
+      </Link>
       <p>Page Not Found</p>
-      <a className="App-link" href="/">
-        Return home
-      </a>
     </AppMain>
   );
 };

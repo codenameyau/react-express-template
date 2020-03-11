@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ReactLogo from 'app/assets/logo.svg';
 import { useFetch } from 'app/hooks';
 import { AppMain, CodeBlock } from 'app/styles/SharedStyles.js';
 
@@ -10,7 +9,6 @@ export const Home = props => {
 
   return (
     <AppMain>
-      <img src={ReactLogo} className="App-logo" alt="logo" />
       <Link className="App-link" to="/rockets">
         See SpaceX rocket launches{' '}
         <span role="img" aria-label="rocket">
