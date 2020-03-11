@@ -21,6 +21,13 @@ export const request = (
       return { status: 204 };
     }
 
+    if (res.status >= 400) {
+      return {
+        status: res.status,
+        body: res.body,
+      };
+    }
+
     return res
       .json()
       .catch(error => {

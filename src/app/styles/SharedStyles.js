@@ -20,16 +20,18 @@ export const AppMain = styled.main`
 `;
 
 export const CodeBlock = styled.code`
+  width: 80%;
   margin: 1em 0;
   padding: 0.5em;
   border-radius: 0.5em;
   font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
-  font-size: 90%;
-  line-height: 140%;
+  font-size: 0.5em;
+  line-height: 1.5em;
   white-space: pre;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
   white-space: -o-pre-wrap;
   text-align: left;
   background: rgba(0, 0, 0, 0.1);
+  overflow-x: scroll;
 `;

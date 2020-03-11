@@ -71,9 +71,7 @@ if (process.env.NODE_ENV === 'production') {
     }
 
     console.log(
-      `🚀 Express prod server started at https://${process.env.HOST}:${
-        server.address().port
-      }`
+      `🚀 Express prod server started at https://localhost:${server.address().port}`
     );
   });
 }
@@ -86,9 +84,7 @@ else {
     }
 
     console.log(
-      `🚀 Express dev server started at http://${process.env.HOST}:${
-        server.address().port
-      }`
+      `🚀 Express dev server started at http://localhost:${server.address().port}`
     );
   });
 }

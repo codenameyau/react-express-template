@@ -5,14 +5,14 @@ import { useFetch } from 'app/hooks';
 import { AppMain, CodeBlock } from 'app/styles/SharedStyles.js';
 
 export const Rockets = props => {
-  const [ready, data] = useFetch({ path: '/spacex/launches/latest' });
+  const [ready, data] = useFetch({ path: '/spacex/v3/launches/latest' });
 
   return (
     <AppMain>
-      <Link className="App-link" to="/this-page-does-not-exist">
-        Visit a 404 page{' '}
-        <span role="img" aria-label="not found">
-          👻
+      <Link className="App-link" to="/">
+        Return home
+        <span role="img" aria-label="home">
+          🏡
         </span>
       </Link>
       {ready && <CodeBlock>{JSON.stringify(data, null, 2)}</CodeBlock>}
