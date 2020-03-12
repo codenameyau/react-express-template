@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Enable bash safe mode.
+set -Eeuo pipefail
+
+# Enable globstar (**) for file globbing.
+shopt -s globstar
+
+# Build the app.
+yarn build
+yarn server:build

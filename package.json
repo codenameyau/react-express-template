@@ -4,18 +4,21 @@
   "proxy": "http://localhost:9008",
   "scripts": {
     "production": "yarn build && yarn server",
+    "production:heroku": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 ./server-babel/index.js",
     "start": "concurrently 'yarn server:dev' 'yarn start:react'",
     "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:ci": "CI=true react-scripts test --maxWorkers=6 --bail",
-    "server": "babel ./server -d ./server-babel && node ./server-babel/index.js",
+    "test:ci": "CI=true react-scripts test",
+    "server": "yarn server:build && node ./server-babel/index.js",
+    "server:build": "babel ./server -d ./server-babel",
     "server:dev": "babel-watch ./server/index.js",
     "lint": "eslint src",
     "prettier": "prettier --write '**/*.js'",
-    "analyze": "source-map-explorer ./build/*.{js,map}",
+    "analyze": "source-map-explorer build/**/*.{js,map}",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "heroku-postbuild": "./bin/heroku-postbuild"
   },
   "eslintIgnore": [
     "build",
