@@ -1,8 +1,58 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import request from 'app/utils/request';
 
-const cache = {};
+export const request = (
+  url,
+  options = {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  }
+) => {
+  const httpOptions = {
+    ...options,
+  };
+
+  if (options.body) {
+    httpOptions.body = JSON.stringify(options.body);
+  }
+
+  return fetch(url, httpOptions).then(res => {
+    if (res.status === 204) {
+      return { status: 204 };
+    }
+
+    if (res.status >= 400) {
+      return {
+        status: res.status,
+        body: res.body,
+      };
+    }
+
+    return res
+      .json()
+      .catch(error => {
+        console.error(error);
+      })
+      .then(json => {
+        if (json instanceof Array || Array.isArray(json)) {
+          return {
+            body: json,
+            status: res.status,
+          };
+        } else {
+          return {
+            ...json,
+            status: res.status,
+          };
+        }
+      });
+  });
+};
+
+const useFetchCache = {};
 
 export const useFetch = props => {
   const [ready, setReady] = useState(false);
@@ -12,9 +62,9 @@ export const useFetch = props => {
     if (props.cache) {
       const cacheKey = btoa(props.path);
 
-      if (cache[cacheKey]) {
+      if (useFetchCache[cacheKey]) {
         setReady(true);
-        setData(cache[cacheKey]);
+        setData(useFetchCache[cacheKey]);
         return;
       }
     }
@@ -26,7 +76,7 @@ export const useFetch = props => {
           setData(res);
 
           if (props.cache) {
-            cache[btoa(props.path)] = res;
+            useFetchCache[btoa(props.path)] = res;
           }
         })
         .catch(err => {
