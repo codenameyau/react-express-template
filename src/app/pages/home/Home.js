@@ -5,7 +5,7 @@ import { useFetch } from 'app/hooks';
 import { AppMain, CodeBlock } from 'app/styles/SharedStyles.js';
 
 export const Home = props => {
-  const [ready, data] = useFetch({ path: '/api' });
+  const [ready, data] = useFetch({ path: '/api', cache: true });
 
   return (
     <AppMain>
@@ -15,6 +15,7 @@ export const Home = props => {
           🚀
         </span>
       </Link>
+      <p>This is an internal API request</p>
       {ready && <CodeBlock>{JSON.stringify(data, null, 2)}</CodeBlock>}
     </AppMain>
   );

@@ -4,6 +4,7 @@ export const StyledApp = styled.div`
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
+  padding: 1em;
 `;
 
 export const AppMain = styled.main`
@@ -22,10 +23,10 @@ export const AppMain = styled.main`
 export const CodeBlock = styled.code`
   width: 80%;
   margin: 1em 0;
-  padding: 0.5em;
+  padding: 1em;
   border-radius: 0.5em;
   font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
-  font-size: 0.5em;
+  font-size: 0.7em;
   line-height: 1.5em;
   white-space: pre;
   white-space: pre-wrap;
