@@ -16,8 +16,6 @@
     "lint": "eslint src",
     "prettier": "prettier --write '**/*.js'",
     "analyze": "source-map-explorer build/**/*.{js,map}",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "heroku-postbuild": "./bin/heroku-postbuild"
   },
   "eslintIgnore": [
@@ -43,8 +41,6 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
-    "@storybook/addons": "^5.3.13",
-    "@storybook/react": "^5.3.13",
     "babel-watch": "^7.0.0",
     "concurrently": "^5.1.0",
     "enzyme": "^3.10.0",
